@@ -120,7 +120,7 @@ export const ContainerNodeInnerComponent: React.FC<IContainerNodeInnerComponent>
         })
 
         for (const selectedNode of sortedNodes) {
-            node.addChild(selectedNode, Config.CONTAINER_CHILD_DRAG_THRESHOLD);
+            node.addChild(selectedNode);
         }
     }
     
