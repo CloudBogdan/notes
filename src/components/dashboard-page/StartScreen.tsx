@@ -29,7 +29,11 @@ const splashes: string[] = [
     "Finger me!",
     "Jack Stauber is awesome",
     "I love you. And you me?..",
-    "Good boy"
+    "Good boy",
+    "Open source!",
+    "bogdanov#4802",
+    "vk.com/bbogdan_ov",
+    "t.me/bbogdan_ov",
 ]
 
 const StartScreen: React.FC = ()=> {
