@@ -1,0 +1,67 @@
+.icon-wrapper {
+    min-width: 20px;
+    min-height: 20px;
+    width: fit-content;
+    height: fit-content;
+
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.colored-bg {
+    &.color-blue {
+        background: $blue;
+    }
+    &.color-green {
+        background: $green;
+    }
+    &.color-orange {
+        background: $orange;
+    }
+    &.color-pink {
+        background: $pink;
+    }
+    &.color-red {
+        background: $red;
+    }
+    &.color-white {
+        background: $white;
+    }
+}
+.colored-text {
+    &.color-blue {
+        color: $blue;
+    }
+    &.color-green {
+        color: $green;
+    }
+    &.color-orange {
+        color: $orange;
+    }
+    &.color-pink {
+        color: $pink;
+    }
+    &.color-red {
+        color: $red;
+    }
+    &.color-white {
+        color: $white;
+    }
+}
+
+.box {
+    width: fit-content;
+    
+    border-radius: $box-border-radius;
+    background: $gray;
+}
+.badge {
+    padding: .3em .6em;
+
+    background: rgba(255,255,255,.2);
+    border-radius: 50px;
+
+    @extend .colored-bg;
+}

@@ -1,0 +1,30 @@
+.palette-floating-window {
+    background: transparent;
+    border-color: transparent;
+    
+    .floating-window-header {
+        display: none;
+        padding: 10px;
+        padding-left: 14px;
+        margin-bottom: 10px;
+        
+        background: $app-background;
+        border-radius: $box-border-radius;
+        border: inherit;
+        border-color: $gray;
+    }
+    
+    .palette-list {
+        padding: 6px;
+        
+        display: grid;
+        gap: 0;
+        grid-template-columns: repeat(2, auto);
+        row-gap: 6px;
+        column-gap: 6px;
+        
+        border-radius: calc(38px / 2 + 6px);
+        background: $app-background;
+        border: 2px solid $gray;
+    }
+}

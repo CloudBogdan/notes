@@ -1,0 +1,80 @@
+.board-header {
+    padding: $toolbar-paddings;
+    
+    display: flex;
+    // align-items: center;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    margin: 20px;
+
+    background: transparentize($app-background, .05);
+    border: 2px solid $gray;
+    border-radius: calc($box-border-radius + $toolbar-paddings);
+    backdrop-filter: blur(16px);
+
+    // Children
+    .board-name {
+        width: 200px;
+        padding: 4px 12px;
+
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+
+        background: $gray;
+        border-radius: $button-border-radius;
+
+        cursor: pointer;
+
+        .saving-text {
+            color: $blue;
+            margin-right: 10px;
+        }
+        .unsaved-icon {
+            width: 8px;
+            height: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 6px;
+            transform: translateY(1px);
+        }
+
+        &::after {
+            content: "";
+
+            width: 200%;
+            height: 100%;
+
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            transition: .2s;
+
+            background: repeating-linear-gradient(225deg, transparent, transparent 20px, transparentize($blue, .8) 20px, transparentize($blue, .8) 50px);
+
+            animation: board-name-pattern-move infinite linear 1s;
+            pointer-events: none;
+        }
+    }
+
+    // States
+    &.saving {
+        .board-name::after {
+            opacity: 1;
+            transition: 0s;
+        }
+    }
+}
+
+@keyframes board-name-pattern-move {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-71px);
+    }
+}

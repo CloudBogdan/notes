@@ -1,0 +1,138 @@
+$padding: $box-padding;
+$inner-padding: 0px;
+
+.list-node {
+    min-width: 370px;
+    
+    display: flex;
+    flex-direction: column;
+    
+    background: $gray;
+    border-radius: calc($box-border-radius + $padding);
+    border: 2px solid $workspace-background;
+    outline: 0px solid $purple !important;
+    
+    // Children
+    .list-node-header {
+        padding: calc($padding + 6px);
+        border-bottom: 2px solid $workspace-background;
+    }
+    .container-node-inner {
+        padding: calc($padding / 2) $padding;
+        width: 100%;
+        min-height: 40px;
+
+        overflow: hidden;
+        border-radius: inherit;
+        border: 2px dashed transparent;
+        background: inherit;
+
+        // Children
+        .content {
+            display: flex;
+            flex-direction: column;
+        }
+        &::after {
+            content: "";
+
+            width: 200%;
+            height: 100%;
+
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            transition: .2s;
+
+            background: repeating-linear-gradient(225deg, transparent, transparent 20px, transparentize($purple, .9) 20px, transparentize($purple, .9) 50px);
+
+            animation: list-pattern-move infinite linear 1s;
+            pointer-events: none;
+        }
+        .inner-node {
+            margin: calc($padding / 2) 0;
+            animation: inner-node-fade .3s $ease-bounce-out;
+            
+            .node {
+                position: relative;
+                left: 0 !important;
+                top: 0 !important;
+
+                &.todo-node {
+                    width: 100%;
+                }
+            }
+        }
+        .node-ghost {
+            margin: calc($padding / 2) 0;
+            background: $purple;
+            border-radius: $box-border-radius;
+        }
+        .skeleton {
+            width: 100%;
+            height: 20px;
+
+            margin: calc($padding / 2) 0;
+
+            background: lighten($gray, 5);
+            border-radius: $box-border-radius;
+        }
+        .interact-field {
+            width: 100%;
+            height: 100%;
+
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        // States
+        &.nodes-dragging {
+            border-color: $purple;
+            
+            &::after {
+                opacity: 1;
+            }
+        }
+    }
+    
+    // States
+    &.selected {
+        outline-width: 2px !important;
+    }
+}
+.list-node.node-preview {
+    &:not(.dragging) {
+        width: 120px;
+        min-width: 120px;
+        max-width: 120px;
+        left: 10px;
+    }
+}
+
+@keyframes list-pattern-move {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-71px);
+    }
+}
+@keyframes inner-node-fade {
+    from {
+        transform: translateY(-24px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+@keyframes ghost-fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

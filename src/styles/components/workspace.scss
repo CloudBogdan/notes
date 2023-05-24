@@ -1,0 +1,29 @@
+.workspace {
+    width: 100%;
+    height: 100%;
+
+    background: $workspace-background;
+
+    .workspace-grid {
+        width: 4000px;
+        height: 3000px;
+
+        position: absolute;
+        left: -2000px;
+        top: -1500px;
+
+        background-image: url("/src/images/grid-dot.png");
+        background-size: 10px 10px;
+        opacity: .1;
+    }
+    .workspace-transform {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    .workspace-nodes {
+        position: absolute;
+    }
+}

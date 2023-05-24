@@ -1,0 +1,36 @@
+// Values
+$small-font-size: 12px;
+$normal-font-size: 15px;
+$middle-font-size: 16px;
+$large-font-size: 18px;
+$extra-large-font-size: 22px;
+
+$button-border-radius: 4px;
+
+$box-border-radius: 6px;
+$box-padding: 10px;
+
+$toolbar-paddings: 10px;
+
+// Eases
+$ease-bounce-out: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+// Colors
+$black: #222;
+$white: #e2e2e2;
+$alpha-white: rgba(255,255,255,.06);
+$gray: #242424;
+$light-gray: lighten($gray, 40);
+$blue: #227aff;
+$red: #ff223f;
+$orange: #fa6611;
+$yellow: #ffaf1a;
+$green: #19bb57;
+$pink: #dd3d7b;
+$purple: #aa3ddd;
+
+$app-background: #121212;
+
+$default-font-color: $white;
+
+$workspace-background: #121212;

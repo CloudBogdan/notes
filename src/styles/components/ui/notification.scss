@@ -1,0 +1,8 @@
+.notification {
+    padding: 15px 20px;
+
+    border-radius: $box-border-radius;
+    background: $blue;
+    
+    @extend .colored-bg;
+}

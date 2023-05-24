@@ -1,0 +1,40 @@
+.raw-text-input, .text-input {
+    @include ff;
+    border: none;
+}
+.text-input {
+    width: 100%;
+    height: 36px;
+    padding: 0 12px;
+    
+    background: transparent;
+    border: 2px solid rgba(255,255,255,.1);
+    border-radius: $button-border-radius;
+
+    &:focus {
+        border-color: $blue;
+    }
+}
+
+.editable-text-input {
+    .text-input {
+        box-sizing: content-box;
+        height: fit-content;
+        padding: 4px 8px;
+        
+        margin: -6px -10px;
+        display: none;
+    }
+    .text {
+        cursor: pointer;
+    }
+
+    &.editing {
+        .text {
+            display: none;
+        }
+        .text-input {
+            display: initial;
+        }
+    }
+}

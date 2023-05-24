@@ -1,0 +1,33 @@
+.selection-rect {
+    position: absolute;
+    overflow: hidden;
+
+    border: 2px solid $blue;
+    border-radius: $box-border-radius + 10px;
+    pointer-events: none;
+
+    &::after {
+        content: "";
+
+        width: 200%;
+        height: 100%;
+
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        background: repeating-linear-gradient(225deg, transparent, transparent 40px, transparentize($blue, .95) 40px, transparentize($blue, .95) 120px);
+
+        animation: pattern-move infinite linear 3s;
+        pointer-events: none;
+    }
+}
+
+@keyframes pattern-move {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-168px);
+    }
+}

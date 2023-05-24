@@ -1,0 +1,89 @@
+.board, .new-board-card {
+    padding: $box-padding;
+    
+    display: flex;
+    flex-direction: column;
+    
+    border-radius: calc($box-border-radius + $box-padding);
+    border: 2px solid transparent;
+
+    cursor: pointer;
+    transition: .1s transform;
+
+    // Children
+    > *:not(:last-child) {
+        margin-bottom: $box-padding;
+    }
+    .board-preview {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        
+        background: $workspace-background;
+        border-radius: $box-border-radius;
+        border: 2px solid $blue;
+        overflow: hidden;
+    }
+
+    // Actions
+    &:not(.not-clickable):hover {
+        border-color: $gray;
+    }
+    &:not(.not-clickable):active {
+        transform: translateY(2px);
+    }
+}
+.board {
+    // Children
+    .board-content {
+        padding: 0 $box-padding;
+        
+        display: flex;
+        flex-direction: column;
+
+        .board-name, .board-name > * {
+            font-size: $middle-font-size;
+            font-weight: 500;
+        }
+    }
+    .board-preview {
+        img {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    // States
+    &:not(.preview-loaded) {
+        .board-preview img {
+            display: none;
+        }
+    }
+}
+.new-board-card {
+    .board-preview {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        border: 2px dashed $blue;
+        color: $blue;
+        background: transparent;
+    }
+
+    &:hover {
+        border-color: transparent;
+    }
+}
+
+.boards-grid {
+    width: 100%;
+    
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-rows: auto;
+    row-gap: 10px;
+    column-gap: 10px;
+}

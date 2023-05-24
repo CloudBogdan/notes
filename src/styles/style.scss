@@ -1,0 +1,70 @@
+@import "./erid.scss";
+@import "./fonts.scss";
+@import "./variables.scss";
+@import "./mixins.scss";
+@import "./typography.scss";
+@import "./misc.scss";
+
+@import "./components/ui/buttons.scss";
+@import "./components/ui/pages.scss";
+@import "./components/ui/text-inputs.scss";
+@import "./components/ui/content-editable.scss";
+@import "./components/ui/floating-window.scss";
+@import "./components/ui/palette-list.scss";
+@import "./components/ui/checkbox.scss";
+@import "./components/ui/notification.scss";
+@import "./components/ui/image-input.scss";
+
+@import "./components/nodes/node.scss";
+@import "./components/nodes/note-node.scss";
+@import "./components/nodes/todo-node.scss";
+@import "./components/nodes/list-node.scss";
+@import "./components/nodes/image-node.scss";
+
+@import "./components/windows/palette-floating-window.scss";
+@import "./components/windows/image-changer-floating-window.scss";
+
+@import "./components/board.scss";
+@import "./components/toolbar.scss";
+@import "./components/board-header.scss";
+@import "./components/workspace.scss";
+@import "./components/selection-rect.scss";
+@import "./components/actions-menu.scss";
+@import "./components/context-menu.scss";
+
+@import "./components/app.scss";
+@import "./components/pages/board-page.scss";
+@import "./components/pages/dashboard-page.scss";
+
+* {
+    
+    &:not([contenteditable]) {
+        user-select: none;
+        -webkit-user-drag: none;
+    }
+    &[contenteditable] {
+        min-height: calc($normal-font-size + 4px);
+        word-wrap: break-word;
+    }
+
+    &::selection {
+        background: #00f;
+    }
+    &::-webkit-scrollbar {
+        width: 4px;
+        height: 4px;
+    }
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background: rgba(255, 255, 255, .8);
+    }
+}
+body {
+    background: $app-background;
+    overflow: hidden;
+
+    @include ff;
+}

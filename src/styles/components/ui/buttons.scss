@@ -1,0 +1,99 @@
+$button-height: 36px;
+
+$small-button-width: 24px;
+$small-button-height: 24px;
+
+$large-button-height: 48px;
+
+.button {
+    padding: 0 12px;
+    height: $button-height;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include ff;
+    border: none;
+    background: $gray;
+    border-radius: $button-border-radius;
+    font-weight: 500;
+    text-decoration: none;
+
+    cursor: pointer;
+    transition: .1s transform;
+
+    // Children
+    .icon-wrapper {
+        &:not(:last-child) {
+            margin-right: 10px;
+        }
+    }
+
+    // Colors
+    &.color-white {
+        background: $white;
+        color: $black;
+    }
+    &.color-blue {
+        background: $blue;
+    }
+
+    // Sizes
+    &.size-large {
+        padding: 0 20px;
+        height: $large-button-height;
+    }
+    
+    // States
+    &.compact {
+        padding: 0;
+        min-width: $button-height;
+        width: $button-height;
+
+        &.size-small {
+            width: $small-button-width;
+            min-width: $small-button-width;
+            height: $small-button-height;
+        }
+    }
+    &.pill {
+        border-radius: 50px;
+    }
+    &.transparent {
+        background: transparent;
+        color: $light-gray;
+
+        &.color-white {
+            color: $white;
+        }
+        &.color-blue {
+            color: $blue;
+        }
+    }
+    &.fill {
+        width: 100%;
+    }
+    &:disabled {
+        opacity: .5;
+        cursor: not-allowed;
+    }
+
+    // Actions
+    &:not(:disabled):not(.transparent):hover {
+        background: lighten($gray, 5);
+
+        &.color-white {
+            background: darken($white, 20);
+        }
+        &.color-blue {
+            background: darken($blue, 10);
+        }
+    }
+    &:not(:disabled).transparent:hover {
+        background: $alpha-white;
+    }
+    &:not(:disabled):not(.no-anim):active {
+        transform: translateY(2px);
+    }
+}

@@ -1,0 +1,105 @@
+$padding: 6px;
+
+.context-menu-wrapper {
+    position: fixed;
+    left: 100px;
+    top: 100px;
+    z-index: 999;
+
+    display: flex;
+    opacity: 0;
+
+    transition: .05s opacity;
+    transition-delay: .15s;
+    pointer-events: none;
+
+    &.active {
+        opacity: 1;
+        transition-delay: 0s;
+        pointer-events: initial;
+    }
+}
+.context-menu {
+    min-width: 220px;
+    
+    transform-origin: 0 0;
+    overflow: hidden;
+
+    background: $gray;
+    border-radius: calc($button-border-radius + $padding);
+    border: 2px solid $app-background;
+
+    // Children
+    .context-menu-content {
+        width: 100%;
+        padding: $padding;
+        
+        display: flex;
+        flex-direction: column;
+    }
+    .buttons-group {
+        display: flex;
+        flex-direction: column;
+        
+        // Children
+        .context-menu-button {
+            width: 100%;
+            height: 36px;
+            padding: 0 10px;
+        
+            display: grid;
+            grid-template-columns: auto auto 1fr;
+        
+            &:not(:hover) {
+                background: transparent;
+            }
+
+            .hotkey {
+                justify-self: flex-end;
+                margin-left: 10px;
+
+                opacity: .2;
+            }
+        }
+        
+        // States
+        &.radio {
+            flex-direction: row;
+
+            .context-menu-button {
+                padding: 0;
+                justify-content: center;
+
+                .icon-wrapper {
+                    margin: 0;
+                }
+                > span {
+                    display: none;
+                }
+            }
+        }
+        &:not(:last-child) {
+            margin-bottom: 10px;
+
+            &::after {
+                content: "";
+
+                width: calc(100% - 4px);
+                height: 2px;
+
+                position: absolute;
+                left: 2px;
+                bottom: -6px;
+                
+                background: rgba(255,255,255, .06);
+                border-radius: 2px;
+            }
+        }
+    }
+}
+.context-menu-button {
+    
+    &.active {
+        color: $blue;
+    }
+}

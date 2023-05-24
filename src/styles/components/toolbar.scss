@@ -1,0 +1,85 @@
+.toolbar {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: 20px;
+
+    background: transparentize($app-background, .05);
+    border: 2px solid $gray;
+    border-radius: calc($box-border-radius + $toolbar-paddings);
+    backdrop-filter: blur(16px);
+
+    // Children
+    .toolbar-buttons {
+        padding: $toolbar-paddings;
+    }
+
+    .toolbar-node-buttons-wrapper {
+        width: 100%;
+    }
+    .toolbar-node-buttons {
+        width: 180px;
+        height: fit-content;
+        
+        position: absolute;
+        left: 0;
+        top: 0;
+        overflow: hidden;
+        
+        .toolbar-node-button {
+            width: 100%;
+
+            cursor: grab;
+            
+            // Children
+            .node-preview-wrapper {
+                width: fit-content;
+                height: fit-content;
+                transform: translateX(-50%);
+                transition: .4s $ease-bounce-out;
+                
+                .node {
+                    position: relative;
+                }
+            }
+
+            // States
+            &:hover {
+                .node-preview-wrapper {
+                    transform: translateX(calc(-50% + 40px));
+                }
+            }
+            &:active {
+                cursor: grabbing;
+            }
+            &:not(:last-child) {
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    // States
+    &.creating .toolbar-node-button:hover .node-preview-wrapper {
+        transition: .6s $ease-bounce-out;
+        transform: translateX(-100%);
+    }
+}
+.draggable-node-preview {
+    width: fit-content;
+    height: fit-content;
+    
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    pointer-events: none;
+
+    // Children
+    .node {
+        position: relative;
+        left: 0;
+    }
+}

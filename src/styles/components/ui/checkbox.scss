@@ -1,0 +1,36 @@
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+
+    .checkbox:not(:last-child) {
+        margin-right: 10px;
+    }
+}
+.checkbox {
+    width: 22px;
+    min-width: 22px;
+    height: 22px;
+    padding: 0;
+    
+    svg {
+        transition: .1s;
+        transition-delay: .06s;
+        opacity: 0;
+    }
+    
+    &.color-gray {
+        background: lighten($gray, 10);
+        &:hover {
+            background: lighten($gray, 15);
+        }
+    }
+
+    &.checked {
+        svg {
+            transition-delay: 0s;
+            opacity: 1;
+        }
+    }
+}

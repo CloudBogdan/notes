@@ -1,0 +1,62 @@
+$padding: 16px;
+
+.floating-window-wrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+.floating-window {
+    display: flex;
+    flex-direction: column;
+
+    background: $app-background;
+    border-radius: calc($box-border-radius);
+    border: 2px solid $gray;
+
+    animation: floating-window-fade .2s $ease-bounce-out;
+
+    // Children
+    .floating-window-header {
+        padding: $padding;
+
+        display: flex;
+        justify-content: space-between;
+
+        .header-title {
+            width: 100%;
+            height: 100%;
+            
+            margin-right: 10px;
+            
+            color: $light-gray;
+            line-height: 24px;
+        }
+    }
+    .floating-window-content {
+        padding: $padding;
+        padding-top: 0;
+
+        display: flex;
+        flex-direction: column;
+    }
+
+    // States
+    &.draggable {
+        .header-title {
+            cursor: grab;
+
+            &:active {
+                cursor: grabbing;
+            }
+        }
+    }
+}
+
+@keyframes floating-window-fade {
+    from {
+        transform: translateY(20px);
+    }
+    to {
+        transform: translateX(0);
+    }
+}

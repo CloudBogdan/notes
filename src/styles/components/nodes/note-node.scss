@@ -1,0 +1,107 @@
+.note-node {
+    width: 160px;
+    height: 160px;
+    padding: $box-padding;
+    padding-bottom: 20px;
+
+    border-radius: $box-border-radius;
+    border-bottom-right-radius: 20px;
+    background: $blue;
+    border: 2px solid $workspace-background;
+    outline: 0px solid $blue !important;
+
+    // Children
+    .note-content {
+        width: 100%;
+        height: 100%;
+        
+        .node-content-text {
+            height: 100%;
+            
+            overflow-x: hidden;
+            overflow-y: auto;
+
+            &::after {
+                transition: 0s;
+            }
+        }
+
+        // States
+        &.text-size-small {
+            font-size: $small-font-size;
+        }
+        &.text-size-normal {
+            font-size: $normal-font-size;
+        }
+        &.text-size-middle {
+            font-size: $middle-font-size;
+        }
+        &.text-size-large {
+            font-size: $large-font-size;
+        }
+        &.text-size-extra-large {
+            font-size: $extra-large-font-size;
+        }
+    }
+    
+    .note-fold {
+        width: 21px;
+        height: 21px;
+
+        position: absolute;
+        bottom: -0px;
+        right: -0px;
+        background: transparent;
+
+        path {
+            stroke: $workspace-background;
+        }
+    }
+    .note-fold {
+        cursor: nw-resize;
+    }
+
+    // Colors
+    &.color-white {
+        background: $white;
+        color: $black;
+        font-weight: 500;
+        outline-color: $white !important;
+
+        .node-content-text {
+            &::-webkit-scrollbar-thumb {
+                background: rgba(0, 0, 0, .4);
+            }
+            &::after {
+                color: rgba(0,0,0, .4);
+            }
+        }
+    }
+    &.color-red {
+        background: $red;
+        outline-color: $red !important;
+    }
+    &.color-orange {
+        background: $orange;
+        outline-color: $orange !important;
+    }
+    &.color-green {
+        background: $green;
+        outline-color: $green !important;
+    }
+    &.color-pink {
+        background: $pink;
+        outline-color: $pink !important;
+    }
+
+    // States
+    &.selected {
+        outline-width: 2px !important;
+    }
+}
+.note-node.node-preview {
+    &:not(.dragging) {
+        width: 120px;
+        height: 120px;
+    }
+}

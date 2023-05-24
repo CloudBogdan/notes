@@ -1,0 +1,127 @@
+.image-node {
+    display: grid;
+    
+    border-radius: $box-border-radius;
+    outline: 0px solid $green !important;
+
+    // Children
+    .image {
+        width: fit-content;
+        height: fit-content;
+
+        img {
+            object-fit: cover;
+            border-radius: $box-border-radius;
+
+            filter: drop-shadow(0px 0px 20px #0e0d0d);
+        }
+    }
+    .image-fold {
+        width: 30px;
+        height: 30px;
+        
+        position: absolute;
+        right: 0;
+        bottom: 0;
+
+        opacity: 0;
+
+        cursor: nw-resize;
+
+        svg {
+            position: absolute;
+            bottom: 4px;
+            right: 4px;
+        }
+    }
+    .image-icon-wrapper {
+        align-self: center;
+        justify-self: center;
+
+        color: $green;
+    }
+    &::after {
+        content: "";
+
+        width: 200%;
+        height: 100%;
+
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+
+        background: repeating-linear-gradient(225deg, transparent, transparent 20px, transparentize($green, .5) 20px, transparentize($green, .5) 50px);
+
+        animation: image-pattern-move infinite linear .6s;
+        pointer-events: none;
+    }
+
+    // States
+    &.loading {
+        overflow: hidden;
+        
+        &::after {
+            opacity: 1;
+        }
+    }
+    &.loaded {
+        .image-icon-wrapper {
+            display: none;
+        }
+    }
+    &:not(.loaded) {
+        background: transparentize($green, .9);
+        
+        .image {
+            display: none;
+        }
+    }
+    &.pixilated {
+        img {
+            image-rendering: pixelated;
+        }
+    }
+    &:hover {
+        &:not(.selected) {
+            outline-color: transparentize($green, .5) !important;
+        }
+        
+        .image-fold {
+            opacity: 1;
+        }
+    }
+    &.selected, &:hover {
+        outline-width: 2px !important;
+    }
+}
+.image-node-preview {
+    width: 60px;
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: $green;
+    color: $black;
+    border-radius: $box-border-radius;
+
+    &.dragging {
+        width: 100px;
+        height: 100px;
+    }
+    // &.dragging {
+    //     width: 100px;
+    //     height: 80px;
+    // }
+}
+
+@keyframes image-pattern-move {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-71px);
+    }
+}
