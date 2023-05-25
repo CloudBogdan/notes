@@ -128,6 +128,16 @@ export const icons = {
     "image-fold": <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M1 13H9C11.2091 13 13 11.2091 13 9V1" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
     </svg>,
+
+    "line-star": <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14 8L14 2" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+        <path d="M26 14L20 14" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+        <path d="M14 26L14 20" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+        <path d="M2 14L8 14" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+    </svg>,
+    "star": <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12.1243 2.06902C12.7686 0.327779 15.2314 0.327774 15.8757 2.06901L18.2724 8.54597C18.475 9.09341 18.9066 9.52503 19.454 9.7276L25.931 12.1243C27.6722 12.7686 27.6722 15.2314 25.931 15.8757L19.454 18.2724C18.9066 18.475 18.475 18.9066 18.2724 19.454L15.8757 25.931C15.2314 27.6722 12.7686 27.6722 12.1243 25.931L9.7276 19.454C9.52503 18.9066 9.09341 18.475 8.54597 18.2724L2.06902 15.8757C0.327779 15.2314 0.327774 12.7686 2.06901 12.1243L8.54597 9.7276C9.09341 9.52503 9.52503 9.09341 9.7276 8.54597L12.1243 2.06902Z" fill="currentColor"/>
+    </svg>
 }
 export type IconType = keyof typeof icons | (string & {});
 

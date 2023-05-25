@@ -4,6 +4,7 @@ import Dashboard, { IBoard } from "../../managers/Dashboard";
 import { MyComponent } from "../../types/component-types";
 import Icon from "../ui/Icon";
 import BoardCard from "./BoardCard";
+import { useNavigate } from "react-router";
 
 interface IBoardCardsGrid extends MyComponent {
     boards: IBoard[]
@@ -16,7 +17,8 @@ const BoardCardsGrid: React.FC<IBoardCardsGrid> = props=> {
     ])
 
     function onCreateBoardClick() {
-        Dashboard.createBoard();
+        const id = Date.now();
+        Dashboard.createBoard(id);
     }
     
     return (

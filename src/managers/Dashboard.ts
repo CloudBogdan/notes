@@ -41,10 +41,9 @@ export default class Dashboard {
     }
     
     //
-    static createBoard() {
-        const boardId = Date.now();
+    static createBoard(id: number) {
         const data: IBoardData = {
-            id: boardId,
+            id: id,
             name: "New board",
             desc: "Empty",
             date: Date.now(),
@@ -52,7 +51,7 @@ export default class Dashboard {
             nodes: []
         } ;
         
-        this.saveBoard(boardId, data);
+        this.saveBoard(id, data);
         this.loadBoards();
     }
     static editBoardData(id: number, params: Partial<IBoardData>): boolean {

@@ -101,11 +101,11 @@ const TodoNodeComponent: React.FC<ITodoNodeComponent> = props=> {
     );
 };
 
-export const TodoNodePreviewComponent: React.FC<INodePreviewComponent> = props=> {
+export const TodoNodePreviewComponent: React.FC<INodePreviewComponent & { done?: boolean }> = props=> {
     return (
         <NodePreviewComponent { ...props } className="todo-node">
             <div className="todo-checkbox-wrapper">
-                <Checkbox className="todo-checkbox" value={ false } />
+                <Checkbox className="todo-checkbox" value={ props.done || false } />
             </div>
 
             <main className="todo-content">

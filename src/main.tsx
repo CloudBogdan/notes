@@ -10,6 +10,8 @@ import Storage from "./managers/Storage";
 import NodesRegistry from "./registries/NodesRegistry";
 import Dashboard from "./managers/Dashboard";
 import Settings from "./managers/Settings";
+import { gsap } from "gsap";
+import { TextPlugin } from "gsap/TextPlugin";
 
 Mouse.init();
 Keyboard.init();
@@ -19,6 +21,8 @@ Dashboard.init();
 Settings.init();
 
 NodesRegistry.init();
+
+gsap.registerPlugin(TextPlugin);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
 	<BrowserRouter>

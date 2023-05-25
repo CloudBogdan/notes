@@ -1,0 +1,117 @@
+.presentation-page {
+
+    .slide {
+        width: 100%;
+        height: 100vh;
+
+        .fade-content {
+            width: 100%;
+            height: 100%;
+        }
+        .absolute {
+            position: absolute !important;
+        }
+        .centered-content {
+            width: 100%;
+            height: 100%;
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .skew {
+            transform-origin: center;
+            transform: skewY(-15deg);
+        }
+        .origin-center {
+            transform: translate(-50%, -50%);
+        }
+
+        .cursor {
+            position: absolute;
+        }
+        .animated-node {
+            position: absolute;
+            .todo-node {
+                min-width: 280px;
+            }
+        }
+        .particle {
+            position: absolute;
+        }
+        .sel {
+            @extend .selection-rect;
+            position: relative;
+            padding: 20px;
+        }
+
+        .place-text {
+            width: 450px;
+            height: 250px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: $light-gray;
+            font-weight: 500;
+            border-radius: $box-border-radius;
+            border: 2px dashed $gray;
+            font-size: 18px;
+        }
+    }
+}
+
+.target-slide {
+    .animated-node .todo-node {
+        width: 500px;
+        transform: scale(1.5);
+
+        .todo-content-text {
+            
+            &::after {
+                opacity: 0;
+            }
+        }
+    }
+}
+.empty-slide {
+    .animated-node .note-node {
+        width: 260px;
+        height: 260px;
+        font-size: 20px;
+    }
+    .animated-node .todo-node {
+        width: 340px;
+        
+        .todo-content-text {
+            
+            &::after {
+                opacity: 0;
+            }
+        }
+    }
+}
+.target-slide {
+    .wobble {
+        animation: wobble-anim infinite 20s ease-in-out;
+    }
+}
+
+@keyframes wobble-anim {
+    from {
+        transform: skew(0deg, 0deg) translateX(0%);
+    }
+    25% {
+        transform: skew(20deg, 10deg) translateX(10%);
+    }
+    50% {
+        transform: skew(-10deg, 0deg) translateX(-10%);
+    }
+    75% {
+        transform: skew(-20deg, 10deg) translateX(10%);
+    }
+    to {
+        transform: skew(0deg, 0deg) translateX(0%);
+    }
+}

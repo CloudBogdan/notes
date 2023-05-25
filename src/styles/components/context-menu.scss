@@ -69,6 +69,7 @@ $padding: 6px;
             .context-menu-button {
                 padding: 0;
                 justify-content: center;
+                grid-template-columns: auto;
 
                 .icon-wrapper {
                     margin: 0;

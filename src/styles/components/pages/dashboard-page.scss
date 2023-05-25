@@ -57,17 +57,27 @@
             left: 0;
             top: 0;
     
+            &.star {
+                width: 28px;
+                height: 28px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
             &.green-star {
                 left: -15%;
                 top: -10%;
+                color: $green;
             }
             &.purple-star {
                 left: 85%;
                 top: 50%;
+                color: $purple;
             }
             &.yellow-star {
                 left: 105%;
                 top: -60%;
+                color: $yellow;
             }
         }
 
