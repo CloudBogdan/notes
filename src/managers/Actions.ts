@@ -38,7 +38,7 @@ export default class Actions {
         
         // Board
         this.registerAction("save-current-board", ()=> Board.save());
-        this.registerAction("create-board", ()=> Dashboard.createBoard());
+        this.registerAction("create-board", ()=> Dashboard.createBoard(Date.now()));
         this.registerAction("remove-board", (boardId: number)=> Dashboard.removeBoard(boardId));
         
         // Workspace
