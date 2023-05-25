@@ -4,8 +4,8 @@ import Page from "../components/ui/pages/Page";
 import Dashboard from "../managers/Dashboard";
 import useStateListener from "../hooks/useStateListener";
 import Notification from "../components/ui/notifications/Notification";
-import Button from "../components/ui/buttons/Button";
 import StartScreen from "../components/dashboard-page/StartScreen";
+import { Link } from "react-router-dom";
 
 const DashboardPage: React.FC = ()=> {
     const [boards] = useStateListener(Dashboard.Boards);
@@ -31,6 +31,10 @@ const DashboardPage: React.FC = ()=> {
                     <section className="section boards-section p-0">
                         <h1 className="section-title">Boards</h1>
                         <BoardCardsGrid boards={ boards } />
+                    </section>
+
+                    <section>
+                        <Link to="/presentation">Open presentation</Link>
                     </section>
                 </main>
 
